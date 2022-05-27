@@ -1,0 +1,40 @@
+SELECT *
+FROM dbo.Actual_Data
+
+
+SELECT revenue_usd, Year, Month
+FROM dbo.Actual_Data
+
+
+SELECT Year, Month, revenue_usd
+FROM dbo.Actual_Data
+WHERE Year='2016'
+ORDER BY Month ASC
+
+
+
+
+SELECT SUM(revenue_usd) SumRevenue1
+FROM dbo.Actual_Data
+WHERE Year='2016'
+
+
+SELECT SUM(revenue_usd) SumRevenue2
+FROM dbo.Actual_Data
+WHERE Year='2017'
+
+
+SELECT SUM(revenue_usd) SumRevenue1
+FROM dbo.Actual_Data
+WHERE Year='2016' AND revenue_type='new';
+
+
+
+SELECT SUM(revenue_usd) SumRevenue1
+FROM dbo.Actual_Data
+WHERE Year='2016' AND revenue_type='Existing';
+
+
+SELECT SUM(revenue_usd) SumRevenue1
+FROM dbo.Actual_Data
+WHERE Year='2016' AND revenue_type='Renewal';
