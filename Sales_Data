@@ -1,0 +1,96 @@
+SELECT *
+FROM dbo.SalesData
+
+
+SELECT *
+FROM dbo.SalesData
+ORDER BY Year DESC
+
+-- Subquiry in Select 
+
+
+SELECT Opportunity_Owner, Revenue_USD, (SELECT SUM(Revenue_USD) FROM SalesData) as AllSumRevenue
+FROM dbo.SalesData
+Where Opportunity_Owner is not null
+ORDER BY Opportunity_Owner ASC
+
+
+SELECT Opportunity_Owner, Revenue_USD, (SELECT SUM(Revenue_USD) FROM SalesData)
+FROM dbo.SalesData
+Where Opportunity_Owner is not null
+ORDER BY Opportunity_Owner ASC
+
+
+SELECT Opportunity_Owner, Revenue_USD, Close_Date
+FROM dbo.SalesData
+Where Opportunity_Owner is not null
+ORDER BY Close_Date ASC
+
+
+SELECT Close_Date
+FROM dbo.SalesData
+Where Opportunity_Owner is not null
+ORDER BY Close_Date ASC
+
+
+SELECT Opportunity_Owner, Close_Date, Revenue_USD 
+FROM dbo.SalesData
+Where Opportunity_Owner is not null And YEAR='2018';
+
+
+SELECT YEAR, Opportunity_Owner, Revenue_USD
+FROM dbo.SalesData 
+WHERE Opportunity_Owner is not null And YEAR='2018';
+
+
+SELECT YEAR, Opportunity_Owner, Revenue_USD
+FROM dbo.SalesData 
+WHERE Opportunity_Owner is not null And YEAR='2019';
+
+
+SELECT YEAR, Opportunity_Owner, Revenue_USD
+FROM dbo.SalesData 
+WHERE Opportunity_Owner is not null And YEAR='2020';
+
+
+
+SELECT DISTINCT Opportunity_Owner, Revenue_USD
+FROM dbo.SalesData
+WHERE Opportunity_Owner is not null and YEAR='2018';
+
+
+
+SELECT Opportunity_Owner, Year, SUM(Revenue_USD) AS SumRevenue
+FROM dbo.SalesData
+WHERE Opportunity_Owner is not null and YEAR='2018' 
+GROUP by Opportunity_Owner, Year;
+
+
+
+SELECT Opportunity_Owner, Year, SUM(Revenue_USD) AS SumRevenue2019
+FROM dbo.SalesData
+WHERE Opportunity_Owner is not null and YEAR='2019' 
+GROUP by Opportunity_Owner, Year;
+
+
+SELECT Opportunity_Owner, Year, SUM(Revenue_USD) AS SumRevenue2020
+FROM dbo.SalesData
+WHERE Opportunity_Owner is not null and YEAR='2020' 
+GROUP by Opportunity_Owner, Year;
+
+
+SELECT SUM(Revenue_USD) as TotalRevenue
+FROM dbo.SalesData
+WHERE Opportunity_Owner is not null and YEAR='2018';
+
+
+
+SELECT SUM(Revenue_USD) as TotalRevenue
+FROM dbo.SalesData
+WHERE Opportunity_Owner is not null and YEAR='2019';
+
+
+
+SELECT SUM(Revenue_USD) as TotalRevenue
+FROM dbo.SalesData
+WHERE Opportunity_Owner is not null and YEAR='2020';
